@@ -55,3 +55,10 @@ Nginx Container + Web Application
         |
         v
  localhost:30080
+
+
+ ## Documentation
+
+Detailed technical documentation is available here:
+
+- [Lab Setup and Baseline](docs/01-lab-setup-and-baseline.md)
