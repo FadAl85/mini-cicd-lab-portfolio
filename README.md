@@ -16,6 +16,7 @@ The application itself is intentionally small so that the focus remains on CI/CD
 
 ## Architecture
 
+
 ```text
 Developer / VS Code
         |
@@ -55,9 +56,9 @@ Nginx Container + Web Application
         |
         v
  localhost:30080
+```
 
-
- ## Documentation
+## Documentation
 
 Detailed technical documentation is available here:
 
