@@ -201,19 +201,95 @@ A key lesson was:
 
 ## Current State After Test
 
-At the end of the rollback test:
+## Restoration of the Normal Lab State
+
+After successfully verifying the rollback to application Version 1, the lab was restored to the normal current application version.
+
+The Kubernetes deployment image was changed back to:
 
 ```text
-Kubernetes Revision: 3
-Application Image:   ghcr.io/fadal85/mini-cicd:v1
+ghcr.io/fadal85/mini-cicd:v2
+```
+
+The rollout completed successfully.
+
+The active deployment image was verified and the application was tested again through:
+
+```text
+http://localhost:30080
+```
+
+The browser displayed Version 2 successfully.
+
+---
+
+## Revision History After Restoration
+
+After restoring Version 2, the Kubernetes rollout history showed:
+
+```text
+Revision 3 → Application Version 1
+Revision 4 → Application Version 2
+```
+
+This completed the full rollback and recovery cycle:
+
+```text
+Revision 1 → v1
+Revision 2 → v2
+        |
+        v
+Rollback
+        |
+        v
+Revision 3 → v1
+        |
+        v
+Restore Normal State
+        |
+        v
+Revision 4 → v2
+```
+
+This further demonstrated that Kubernetes revision numbers represent deployment history rather than application version numbers.
+
+---
+
+## Final State
+
+At the end of the exercise:
+
+```text
+Kubernetes Revision: 4
+Application Image:   ghcr.io/fadal85/mini-cicd:v2
 Application Status:  Running
 Browser Test:        Successful
 ```
+
+The CI/CD lab was therefore returned to its normal working state after the rollback exercise.
+
+---
+
+## Learning Outcome
+
+The complete exercise demonstrated both sides of Kubernetes deployment recovery:
+
+- inspecting rollout history
+- identifying images associated with revisions
+- rolling back from Version 2 to Version 1
+- understanding creation of a new Kubernetes revision during rollback
+- verifying the rollback through Kubernetes and the browser
+- restoring the normal Version 2 deployment
+- verifying the new post-recovery revision
+
+The lab successfully completed a full:
+
+**Deployment → Rollback → Verification → Restoration**
+
+cycle.
 
 ---
 
 ## Next Step
 
-The lab will next be restored from application Version 1 back to Version 2.
-
-This will return the CI/CD environment to its normal current application state before continuing with additional Kubernetes exercises such as health checks and scaling.
+The next Kubernetes exercise will focus on application health monitoring using readiness and liveness probes.
