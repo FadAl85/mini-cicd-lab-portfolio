@@ -58,11 +58,3 @@ Nginx Container + Web Application
  localhost:30080
 ```
 
-## Documentation
-
-Detailed technical documentation is available here:
-
-- [Lab Setup and Baseline](docs/01-lab-setup-and-baseline.md)
-- [Pipeline Failure Test](docs/02-pipeline-failure-test.md)
-- [Pipeline Recovery Test](docs/03-pipeline-recovery.md)
-- [Kubernetes Rollback Test](docs/04-kubernetes-rollback.md)
